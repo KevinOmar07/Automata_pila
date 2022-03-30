@@ -89,17 +89,34 @@ public class Controller {
         // atributos
         String atributos = texto.substring(cantidad + 1, texto.length() - 1).trim();
         if(atributos.contains(",")){
-            String[] atributosCorte = atributos.split(",");
-            for (String atributo : atributosCorte) {
-                //System.out.println(atributo);
-                if (atributo.contains(":")){
-                    String[] at = atributo.split(":");
-                    structSplit.add(at[0].trim());
-                    structSplit.add(":");
-                    structSplit.add(at[1].trim());
-                    structSplit.add(",");
+            if (atributos.substring(atributos.length()-1, atributos.length()).equals(",")){
+                String[] atributosCorte = atributos.split(",");
+                for (String atributo : atributosCorte) {
+                    if (atributo.contains(":")){
+                        String[] at = atributo.split(":");
+                        structSplit.add(at[0].trim());
+                        structSplit.add(":");
+                        structSplit.add(at[1].trim());
+                        structSplit.add(",");
+                    }
+    
                 }
-
+            }else{
+                String[] atributosCorte = atributos.split(",");
+                int contador = 0;
+                for (String atributo : atributosCorte) {
+                    if (atributo.contains(":")){
+                        String[] at = atributo.split(":");
+                        structSplit.add(at[0].trim());
+                        structSplit.add(":");
+                        structSplit.add(at[1].trim());
+                        if (contador<atributosCorte.length){
+                            structSplit.add(",");
+                        }
+                        contador++;
+                    }
+    
+                }
             }
         }else{
             structSplit.add("e");
