@@ -41,6 +41,8 @@ public class Controller {
             Automata_pila automata_pila = new Automata_pila(entrada);
             automata_pila.validar_entrada();
 
+            // probar(cadena);
+
         } else {
             labelStatus.setText("ERROR");
             labelStatus.setStyle("-fx-text-fill: RED");
@@ -57,10 +59,8 @@ public class Controller {
 
     static ArrayList<String> separarTexto(String texto) {
         int cantidad = 0;
-        //boolean valid = false;
         ArrayList<String> structSplit = new ArrayList<>();
-        // Map<Boolean,ArrayList<String>> validarStruct = new HashMap<Boolean,ArrayList<String>>();
-        // struct
+        texto = texto.trim();
         structSplit.add(texto.substring(0, 6));
 
         // nombre de la struct
@@ -97,14 +97,9 @@ public class Controller {
                     structSplit.add(at[0].trim());
                     structSplit.add(":");
                     structSplit.add(at[1].trim());
+                    structSplit.add(",");
                 }
 
-            }
-        }else if (atributos.contains(" ")){
-            String[] atributosCorte = atributos.split(" ");
-            for (String atributo : atributosCorte) {
-                //System.out.println(atributo);
-                structSplit.add(atributo.trim());
             }
         }else{
             structSplit.add("e");
@@ -118,44 +113,14 @@ public class Controller {
 
     }
 
-    /*void cortar(String texto){
-        int con = 0;
-        int cantidad = 0;
-        while(con!=5){
-            if (con==0) {
-                System.out.println(texto.substring(0, 6));
-                con=1;
-            }else if (con==1){
-                int vali =0 ;
-                for (int i = 6; i < texto.length(); i++) {
-                    if(!texto.substring(i,i+1).equals("{")){
-                        vali++;
-                    }else{
-                        break;
-                    }
-                }
-                System.out.println(texto.substring(6, 6+vali));
-                con=2;
-            }else if (con==2){
-                for (int i = 0; i < texto.length(); i++) {
-                    if (texto.charAt(i) == '{'){
-                        System.out.println(texto.substring(i, i+1));
-                        cantidad=i;
-                        break;
-                    }
-                }
-                con=3;
-            }else if (con==3){
-                String[] atributosCorte = texto.substring(cantidad+1, texto.length()-1).split(",");
-                System.out.println("Atributos");
-                for (String string : atributosCorte) {
-                    System.out.println(string);
-                }
-                con=4;
-            }else if (con==4){
-                System.out.println(texto.substring(texto.length()-1, texto.length()));
-                con=5;
-            }
+    void probar(String t){
+        Pattern terminales = Pattern.compile("^([_]{2}|[a-z])+([0-9]+|[a-z]+|[_]+)+$");
+
+        if (terminales.matcher(t).find()){
+            System.out.println(t);
+        } else {
+            System.out.println("nel");
         }
-    } */
+
+    }
 }
