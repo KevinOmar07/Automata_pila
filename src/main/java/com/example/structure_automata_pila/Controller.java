@@ -5,7 +5,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Controller {
@@ -40,7 +39,7 @@ public class Controller {
 
             Automata_pila automata_pila = new Automata_pila(entrada);
             automata_pila.validar_entrada();
-            if (automata_pila.isStatus()) {
+            if (automata_pila.getStatus()) {
                 labelStatus.setText("Correcto");
                 labelStatus.setStyle("-fx-text-fill: #3FAE74");
             }else{
