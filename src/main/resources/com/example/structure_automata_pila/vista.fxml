@@ -10,10 +10,10 @@
    <children>
       <Pane layoutY="87.0" prefHeight="313.0" prefWidth="600.0" style="-fx-background-color: blue;">
          <children>
-            <TextArea fx:id="textArea" prefHeight="313.0" prefWidth="600.0" style="-fx-border-color: white;" />
+            <TextArea fx:id="textArea" prefHeight="313.0" prefWidth="600.0" style="-fx-border-color: white; -fx-background-color: white; -fx-padding: 0;" />
          </children>
       </Pane>
-      <Button layoutX="469.0" layoutY="21.0" mnemonicParsing="false" onAction="#validarStructure" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: #EAF6EF;" text="Validar">
+      <Button layoutX="469.0" layoutY="21.0" mnemonicParsing="false" onAction="#validarStructure" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: #42B880;" text="Validar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
@@ -37,6 +37,6 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="469.0" layoutY="54.0" mnemonicParsing="false" onAction="#limpiar" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: #E4EBFA;" text="Limpiar" />
+      <Button layoutX="469.0" layoutY="54.0" mnemonicParsing="false" onAction="#limpiar" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: black;" text="Limpiar" textFill="WHITE" />
    </children>
 </Pane>
