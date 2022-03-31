@@ -10,10 +10,13 @@
    <children>
       <Pane layoutY="87.0" prefHeight="313.0" prefWidth="600.0" style="-fx-background-color: blue;">
          <children>
-            <TextArea fx:id="textArea" prefHeight="313.0" prefWidth="600.0" />
+            <TextArea fx:id="textArea" prefHeight="313.0" prefWidth="600.0" style="-fx-border-color: white;" />
          </children>
       </Pane>
-      <Button layoutX="519.0" layoutY="21.0" mnemonicParsing="false" onAction="#validarStructure" prefHeight="25.0" prefWidth="58.0" text="Validar" />
+      <Button layoutX="469.0" layoutY="21.0" mnemonicParsing="false" onAction="#validarStructure" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: #EAF6EF;" text="Validar">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
       <Label layoutX="31.0" layoutY="20.0" text="Status: ">
          <font>
             <Font size="18.0" />
@@ -24,16 +27,16 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="labelStatus" layoutX="89.0" layoutY="20.0" prefHeight="27.0" prefWidth="166.0">
+      <Label fx:id="labelStatus" layoutX="100.0" layoutY="17.0" prefHeight="27.0" prefWidth="108.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="labelMensaje" layoutX="106.0" layoutY="53.0" prefHeight="27.0" prefWidth="411.0">
+      <Label fx:id="labelMensaje" layoutX="117.0" layoutY="53.0" prefHeight="27.0" prefWidth="219.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="519.0" layoutY="54.0" mnemonicParsing="false" onAction="#limpiar" prefHeight="25.0" prefWidth="58.0" text="Limpiar" />
+      <Button layoutX="469.0" layoutY="54.0" mnemonicParsing="false" onAction="#limpiar" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: #E4EBFA;" text="Limpiar" />
    </children>
 </Pane>

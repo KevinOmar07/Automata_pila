@@ -21,6 +21,7 @@ public class Automata_pila {
     Pattern expresionLetra = Pattern.compile("(^[a-z]{1})");
     Pattern terminal = Pattern.compile("^([_]{2}|[a-z])+([0-9]+|[a-z]+|[_]+)+$");
     boolean aux = false;
+    boolean valid = false;
 
     Automata_pila(ArrayList <String> entrada ){
         this.entrada = entrada;

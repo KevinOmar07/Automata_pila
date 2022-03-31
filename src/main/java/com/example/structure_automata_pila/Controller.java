@@ -40,6 +40,13 @@ public class Controller {
 
             Automata_pila automata_pila = new Automata_pila(entrada);
             automata_pila.validar_entrada();
+            if (automata_pila.isStatus()) {
+                labelStatus.setText("Correcto");
+                labelStatus.setStyle("-fx-text-fill: #3FAE74");
+            }else{
+                labelStatus.setText("Incorrecto");
+                labelStatus.setStyle("-fx-text-fill: red");
+            }
 
             // probar(cadena);
 
