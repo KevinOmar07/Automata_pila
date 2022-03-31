@@ -47,7 +47,7 @@ public class Controller {
                 labelStatus.setStyle("-fx-text-fill: red");
             }
 
-            // probar(cadena);
+            //probar(cadena);
 
         } else {
             labelStatus.setText("ERROR");
@@ -102,8 +102,10 @@ public class Controller {
                         String[] at = atributo.split(":");
                         structSplit.add(at[0].trim());
                         structSplit.add(":");
-                        structSplit.add(at[1].trim());
-                        structSplit.add(",");
+                        if (at.length > 1){
+                            structSplit.add(at[1].trim());
+                            structSplit.add(",");
+                        }
                     }
     
                 }
@@ -137,9 +139,11 @@ public class Controller {
     }
 
     void probar(String t){
-        Pattern terminales = Pattern.compile("^([_]{2}|[a-z])+([0-9]+|[a-z]+|[_]+)+$");
+        //Pattern terminales = Pattern.compile("^([_]{2}|[a-z])+([0-9]+|[a-z]+|[_]+)+$");
 
-        if (terminales.matcher(t).find()){
+        Pattern terminales = Pattern.compile("(^[S]{1}[t][r][i][n][g]\\b)");
+
+        if (terminales.matcher(t).matches()){
             System.out.println(t);
         } else {
             System.out.println("nel");

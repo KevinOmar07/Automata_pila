@@ -191,8 +191,8 @@ public class Automata_pila {
                 pila.push(":");
                 break;
             case "TD":
-                Pattern tipo_datos = Pattern.compile("(i32|String|f32|bool|Ɛ|i64|f64)");
-                if (tipo_datos.matcher(puntero).find()){
+                Pattern tipo_datos = Pattern.compile("(i32|String|f32|bool|i64|f64)");
+                if (tipo_datos.matcher(puntero).matches()){
                     pila.push(puntero);
                 } else {
                     pila.push("i32 | String | f32 | bool | i64 | f64");
