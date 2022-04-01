@@ -46,21 +46,15 @@ public class Automata_pila {
         pila.push("S");
         String x = "";
 
-        int con = 0;
         int apuntador = 0;
 
         String a = entrada.get(apuntador);
 
         do {
             mostrar_pila(pila);
-            con++;
-            System.out.println("Vuelta " + con + " bool: " + boolAux);
             x = pila.peek();
-            System.out.println(x);
-            System.out.println(a + " : a");
             if (terminales.matcher(x).find()){
-                System.out.println("Es un terminal: " + x);
-                if((x.equals(a) || x.equals("Ɛ"))  && !boolAux){ //|| x.equals(aAux
+                if((x.equals(a) || x.equals("Ɛ"))  && !boolAux){
                     pila.pop();
                     apuntador++;
 
@@ -70,21 +64,18 @@ public class Automata_pila {
 
                 } else if (x.equals(a.substring(0,1)) && boolAux){
                     pila.pop();
-                    System.out.println("segundo if: " + entradaAux );
                     a = entradaAux;
                 } else {
-                    System.out.println("error");
+                    System.out.println("Entrada invalida");
                     status = false;
                 }
             } else {
-                System.out.println("No es un terminal");
                 pila = meter_produccion(pila, a);
             }
             System.out.println("\n");
         }while (!pila.isEmpty() && status);
 
         if(pila.isEmpty()){
-            System.out.println("Entrada correcta");
         }
     }
 
@@ -105,10 +96,7 @@ public class Automata_pila {
             case "Name":
                 int aux2 = 0;
                 if (terminal.matcher(puntero).find()){
-                    System.out.println("Nameee: " + puntero);
                     aux2 = validarName(puntero);
-                } else {
-                    System.out.println("No Nameee: " + puntero);
                 }
 
                 if (aux2 == 1){
@@ -137,17 +125,10 @@ public class Automata_pila {
 
                 break;
             case "RLI":
-                System.out.println("entro RLI");
-
                 int tipo = 0;
-
                 if (puntero.length()>0){
                     tipo = validarRLI(puntero);
-                } else {
-                    System.out.println("puntero vacio");
                 }
-
-                System.out.println("Tipo: " + tipo);
 
                 if (tipo == 1){
                     pila.push("RLI");
@@ -158,7 +139,6 @@ public class Automata_pila {
                 } else if (tipo == 3) {
                     pila.push("RLI");
                     pila.push("_");
-                    //pila = validarDorLI(pila, puntero, expresionLetra);
 
                     mostrar_pila(pila);
                     pila.pop();
@@ -203,10 +183,8 @@ public class Automata_pila {
                 break;
             case "RC":
                 if (puntero.equals("}")){
-                    System.out.println("Es vacio");
                     pila.push("Ɛ");
                 } else {
-                    System.out.println("No es vacio");
                     pila.push("RC");
                     pila.push("C");
                 }
@@ -248,8 +226,6 @@ public class Automata_pila {
     private int validarRLI(String g){
         int aux = 0;
 
-        System.out.println("Validar RLI: " + g.substring(0,1));
-
         if (expresionLetra.matcher(g.substring(0,1)).find()){
             if (g.substring(0,1).equals("_")){
                 aux = 3;
@@ -266,7 +242,6 @@ public class Automata_pila {
     private int validarName (String g){
         int status_aux = 2;
         if(g.length() >= 2){
-            System.out.println("validarName: " + g);
             if(g.substring(0,2).equals("__")) {
                 status_aux = 1;
             }

@@ -5,7 +5,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 import java.util.ArrayList;
-import java.util.regex.Pattern;
 
 public class Controller {
 
@@ -30,24 +29,17 @@ public class Controller {
 
             ArrayList <String> entrada = separarTexto(cadena);
 
-
-            /*System.out.println("-----------------------Aqui1-----------------------------");
-            cortar(cadena);
-
-            System.out.println("-----------------------Aqui2-----------------------------\n");
-            ArrayList <String> a = separarTexto(cadena);*/
-
             Automata_pila automata_pila = new Automata_pila(entrada);
             automata_pila.validar_entrada();
             if (automata_pila.getStatus()) {
                 labelStatus.setText("Correcto");
                 labelStatus.setStyle("-fx-text-fill: #3FAE74");
+                labelMensaje.setText("Proceso terminado");
             }else{
                 labelStatus.setText("Incorrecto");
                 labelStatus.setStyle("-fx-text-fill: red");
+                labelMensaje.setText("Proceso incompleto");
             }
-
-            //probar(cadena);
 
         } else {
             labelStatus.setText("ERROR");
@@ -135,19 +127,6 @@ public class Controller {
         structSplit.add(llaveCierre);
 
         return structSplit;
-
-    }
-
-    void probar(String t){
-        //Pattern terminales = Pattern.compile("^([_]{2}|[a-z])+([0-9]+|[a-z]+|[_]+)+$");
-
-        Pattern terminales = Pattern.compile("(^[S]{1}[t][r][i][n][g]\\b)");
-
-        if (terminales.matcher(t).matches()){
-            System.out.println(t);
-        } else {
-            System.out.println("nel");
-        }
 
     }
 }
